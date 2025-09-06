@@ -2,25 +2,19 @@ version: "3.9"
 
 services:
   backend2:
-    build:
-      context: ./backend
+    image: dockathif/gscomp29:backend
     environment:
-      # Run Spring Boot on port 5000 to match your HTML/backend route
       JAVA_TOOL_OPTIONS: "-Dserver.port=5000"
-    expose:
-      - "5000"
     ports:
       - "5000:5000"
     restart: unless-stopped
 
   frontend:
-    build:
-      context: ./frontend
+    image: dockathif/gscomp29:frontend
     depends_on:
       - backend2
     ports:
-      - "8081:80"   # open http://localhost:8081
-    # Provide Nginx with a proxy config that forwards /api to backend2:5000
+      - "8081:80"
     volumes:
       - ./frontend/nginx.conf:/etc/nginx/conf.d/default.conf:ro
     restart: unless-stopped
