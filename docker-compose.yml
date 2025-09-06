@@ -3,7 +3,7 @@ version: "3.9"
 services:
   backend2:
     build:
-      context: ./backend
+      context: ./backend2
       dockerfile: Dockerfile
     image: dockathif/gscomp292:backend
     environment:
@@ -14,7 +14,7 @@ services:
 
   frontend:
     build:
-      context: ./frontend
+      context: ./frontend2
       dockerfile: Dockerfile
     image: dockathif/gscomp292:frontend
     depends_on:
