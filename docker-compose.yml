@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   backend2:
-    image: dockathif/gscomp29:backend
+    image: dockathif/gscomp292:backend
     environment:
       JAVA_TOOL_OPTIONS: "-Dserver.port=5000"
     ports:
@@ -10,7 +10,7 @@ services:
     restart: unless-stopped
 
   frontend:
-    image: dockathif/gscomp29:frontend
+    image: dockathif/gscomp292:frontend
     depends_on:
       - backend2
     ports:
